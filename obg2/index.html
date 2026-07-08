@@ -126,7 +126,37 @@
 
   .steps li strong { font-weight: 700; }
 
-  /* Aviso de spam */
+  /* Botão de acesso */
+  .cta {
+    display: block;
+    max-width: 460px;
+    margin: 28px auto 0;
+    background: linear-gradient(180deg, #22c55e, var(--color-green));
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: clamp(1rem, 4vw, 1.15rem);
+    text-transform: uppercase;
+    padding: 18px 20px;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 24px rgba(22, 163, 74, 0.35);
+    transition: transform 0.15s ease;
+  }
+
+  .cta:hover { transform: translateY(-2px); }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1);    box-shadow: 0 8px 24px rgba(22, 163, 74, 0.35); }
+    50%      { transform: scale(1.03); box-shadow: 0 10px 30px rgba(22, 163, 74, 0.5); }
+  }
+
+  .cta { animation: pulse 1.6s ease-in-out infinite; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta { animation: none; }
+  }
+
+  /* Aviso */
   .notice {
     max-width: 460px;
     margin: 30px auto 0;
@@ -168,17 +198,20 @@
   <main class="content">
     <div class="container">
 
-      <p>Gracias por tu confianza. Tu acceso a <strong>El Manuscrito de los Milagros</strong> será enviado a tu correo electrónico <strong>en los próximos minutos.</strong></p>
+      <p>Gracias por tu confianza. Tu acceso a <strong>El Manuscrito de los Milagros</strong> <strong>ya está disponible.</strong></p>
 
       <h2 class="section-title">¿Qué hacer ahora?</h2>
 
       <ol class="steps">
-        <li><strong>Revisa tu correo electrónico</strong> — el mismo que usaste en la compra.</li>
-        <li>Busca el mensaje de <strong>Hotmart</strong> con tu acceso y tu material.</li>
+        <li><span><strong>Haz clic en el botón de abajo.</strong></span></li>
+        <li><span>Al abrir la página, escribe <strong>el mismo correo electrónico</strong> que usaste al momento de realizar la compra.</span></li>
+        <li><span>Después de ingresar tu correo, podrás acceder al contenido de <strong>El Manuscrito de los Milagros</strong> y seguir las instrucciones completas dentro del área de acceso.</span></li>
       </ol>
 
+      <a href="https://www.admin.husky-app.com/app/MTc4MzEzMjk0NDgwMA==" class="cta">Acceder ahora</a>
+
       <div class="notice">
-        <strong>¿No encuentras el correo?</strong> Revisa las carpetas de spam o promociones. El mensaje puede tardar algunos minutos en llegar.
+        Es importante usar <strong>exactamente el mismo email de la compra</strong> para que el sistema pueda localizar tu acceso correctamente.
       </div>
 
     </div>
