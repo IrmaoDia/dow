@@ -1,0 +1,202 @@
+/* ==========================================================
+   DOWNSELL (UP3) — STYLESHEET
+   Estrutura:
+   1. Variáveis de tema
+   2. Reset / base
+   3. Seção de alerta (vermelha)
+   4. Seção da oferta (branca)
+   5. Animações
+   6. Responsividade
+========================================================== */
+
+/* ----------------------------------------------------------
+   1. VARIÁVEIS DE TEMA
+---------------------------------------------------------- */
+:root {
+  --color-danger:        #c40000;
+  --color-danger-dark:   #9a0000;
+  --color-success:       #16a34a;
+  --color-white:         #ffffff;
+  --color-text:          #14161a;
+  --color-text-muted:    #6b7280;
+
+  --font-base: 'Inter', 'Segoe UI', Arial, Helvetica, sans-serif;
+
+  --container-width: 640px;
+  --radius: 12px;
+}
+
+/* ----------------------------------------------------------
+   2. RESET / BASE
+---------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-white);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ----------------------------------------------------------
+   3. SEÇÃO DE ALERTA (VERMELHA)
+---------------------------------------------------------- */
+.alert-bar {
+  background: linear-gradient(
+    160deg,
+    var(--color-danger) 0%,
+    var(--color-danger-dark) 100%
+  );
+  color: var(--color-white);
+  text-align: center;
+  padding: 28px 0 26px;
+  box-shadow: 0 4px 18px rgba(196, 0, 0, 0.35);
+}
+
+.alert-bar__title {
+  font-size: clamp(1.4rem, 5.5vw, 2rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.alert-bar__text {
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ----------------------------------------------------------
+   4. SEÇÃO DA OFERTA (BRANCA)
+---------------------------------------------------------- */
+.offer {
+  text-align: center;
+  padding: 40px 0 64px;
+}
+
+.offer__badge {
+  display: inline-block;
+  background-color: var(--color-danger);
+  color: var(--color-white);
+  font-size: clamp(0.85rem, 3.4vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 8px 20px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.offer__title {
+  font-size: clamp(1.2rem, 4.8vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.35;
+  max-width: 520px;
+  margin: 0 auto 12px;
+}
+
+.offer__subtitle {
+  font-size: clamp(0.95rem, 3.8vw, 1.15rem);
+  line-height: 1.5;
+  color: var(--color-text);
+  max-width: 480px;
+  margin: 0 auto 26px;
+}
+
+/* Preço em destaque máximo */
+.offer__price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 26px;
+}
+
+.offer__price-old {
+  font-size: clamp(1.1rem, 4.2vw, 1.4rem);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.offer__price-now {
+  font-size: clamp(3.6rem, 16vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--color-success);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.offer__price-note {
+  font-size: clamp(0.85rem, 3.4vw, 1rem);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.offer__text {
+  font-size: clamp(0.95rem, 3.8vw, 1.1rem);
+  max-width: 480px;
+  margin: 0 auto 30px;
+  color: var(--color-text);
+}
+
+/* Botão / checkout da Hotmart */
+.offer__cta {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ----------------------------------------------------------
+   5. ANIMAÇÕES
+---------------------------------------------------------- */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.045); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offer__price-now {
+    animation: none;
+  }
+}
+
+/* ----------------------------------------------------------
+   6. RESPONSIVIDADE
+---------------------------------------------------------- */
+@media (max-width: 480px) {
+  .alert-bar {
+    padding: 22px 0 20px;
+  }
+
+  .offer {
+    padding: 32px 0 48px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
